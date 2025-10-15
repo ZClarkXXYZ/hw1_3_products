@@ -8,5 +8,6 @@ FileReader Documentation: [https://docs.oracle.com/javase/8/docs/api/java/io/Rea
 Splitting String question:  https://stackoverflow.com/questions/5993779/use-string-split-with-multiple-delimiters  
 
 
-<img width="1081" height="817" alt="image" src="https://github.com/user-attachments/assets/8242ed6f-dbf8-4867-baa8-60188f45e86e" />
+<img width="1083" height="749" alt="image" src="https://github.com/user-attachments/assets/5f7c7175-a4a5-4533-99b8-f5537663a6ad" />
+
 
