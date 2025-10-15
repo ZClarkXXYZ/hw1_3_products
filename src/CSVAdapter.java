@@ -14,6 +14,7 @@ public class CSVAdapter {
 
     //display a product from CSV
     private void displayProduct(String productName, String processor, String ram, String storage, String graphicCard, String OS, String price) {
+        System.out.print("Checking against CVS product name: "+ productName );
         System.out.print("Processing line: "+ productName );
         System.out.print("," + processor);
         System.out.print("," + ram);
