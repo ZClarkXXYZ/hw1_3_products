@@ -51,11 +51,11 @@ public class Laptop extends ElectronicProduct{
     //Display Specs
     public void displaySpecs() {
         System.out.print("Product: Laptop:");
-        System.out.print("Specifications: {Processor=" + processor);
-        System.out.print("Storage=" + storageSize);
-        System.out.print("Graphics Card=" + graphicsCard);
-        System.out.print("OS=" + OS);
-        System.out.println("RAM="+ RAM + "}");
+        System.out.print(", Specifications: {Processor=" + processor);
+        System.out.print(", Storage=" + storageSize);
+        System.out.print(", Graphics Card=" + graphicsCard);
+        System.out.print(", OS=" + OS);
+        System.out.println(", RAM="+ RAM + "}");
         System.out.println("Price: $" + price);
         System.out.println(""); //spacing
     }
