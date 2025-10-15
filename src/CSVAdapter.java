@@ -14,29 +14,48 @@ public class CSVAdapter {
 
     //display a product from CSV
     private void displayProduct(String productName, String processor, String ram, String storage, String graphicCard, String OS, String price) {
-        System.out.println("Product: " + productName);
-        System.out.println("Processor: " + processor);
-        System.out.println("RAM: " + ram);
-        System.out.println("Storage: " + storage);
-        System.out.println("Graphics Card: " + graphicCard);
-        System.out.println("OS: " + OS);
-        System.out.println("Price: $" + price);
-        System.out.println(""); //Blank line
+        System.out.print("Processing line: "+ productName );
+        System.out.print("," + processor);
+        System.out.print("," + ram);
+        System.out.print("," + storage);
+        System.out.print("," + graphicCard);
+        System.out.print("," + OS);
+        System.out.println(","+price);
     }
+
+    public void displayCVS() {System.out.println(cvsAsString);};
 
 
     //Compare a product type with anything matching in the CSV file (must use same name)
-    public void compareProduct(String productType) {
-
-        int index = 0;
-        while (!(index >= splitString.length)) { //name, process, ram, storage, graphics, os, price
+    public ElectronicProduct compareProduct(String productType) {
+        System.out.println("Looking for product: " + productType);
+        int index = 7;
+        boolean foundProduct = false;
+        while (!(index >= splitString.length) && (foundProduct == false)) { //name, process, ram, storage, graphics, os, price
+            displayProduct(splitString[index], splitString[index+1], splitString[index+2], splitString[index+3], splitString[index+4], splitString[index+5], splitString[index+6]);
             if (splitString[index].toLowerCase().contains(productType.toLowerCase())) { //ex: contains "laptop"
-                displayProduct(splitString[index], splitString[index+1], splitString[index+2], splitString[index+3], splitString[index+4], splitString[index+5], splitString[index+6]);
+                foundProduct = true;
             }
             //debugging print
             //System.out.println(splitString[index].toLowerCase());
-            index = index+1;
+            if (!(foundProduct)) { //if product is found, do not increase index
+                index = index + 7;
+            }
         }
+        if (foundProduct) {
+            System.out.println("Product found and built: " + splitString[index]);
+            System.out.println(""); //spacing
+            if (splitString[index].contains("Laptop")) {
+                return (new Laptop(splitString[index+1], Integer.parseInt(splitString[index+2]), splitString[index+4], splitString[index+5], Integer.parseInt(splitString[index+3]), Double.parseDouble(splitString[index+6])));
+            }
+            else if (splitString[index].contains("Smartphone")) {
+                return (new SmartPhone(splitString[index+1], Integer.parseInt(splitString[index+2]), splitString[index+5], Integer.parseInt(splitString[index+3]), Double.parseDouble(splitString[index+6])));
+            }
+        }
+        System.out.println("Product not found");
+        System.out.println(""); //spacing
+        return (new Laptop()); //return some default to prevent errors for now
+
     }
 
 

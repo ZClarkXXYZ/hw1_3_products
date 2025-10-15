@@ -3,12 +3,6 @@ public interface ProductBuilder {
     //resetBuild
     void resetBuild();
 
-    //Build screen size
-    void buildScreen(String screen);
-
-    //Build battery
-    void buildBattery(int battery);
-
     //Build storage
     void buildStorage(int storage);
 
@@ -17,6 +11,9 @@ public interface ProductBuilder {
 
     //Build software (OS)
     void buildSoftware(String software);
+
+    //Build RAM
+    void buildRAM(int ram);
 
     //Return product
     ElectronicProduct returnProduct();

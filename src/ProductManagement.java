@@ -1,13 +1,12 @@
-import java.util.Scanner;
 
 public class ProductManagement {
     private ProductBuilder productBuilder;
     private CSVAdapter adapter = new CSVAdapter();
     private ElectronicProduct product;
-    private Scanner scnr = new Scanner(System.in);
+    private ElectronicProduct productFromCVS;
 
 
-    public ElectronicProduct buildProduct(String productType) { //Laptop, Smartphone
+    public void buildProduct(String productType) { //Laptop, Smartphone
         if (productType.equals("Laptop")) {
             product = buildLaptop();
         }
@@ -15,53 +14,44 @@ public class ProductManagement {
             product = buildSmartPhone();
         }
         product.displaySpecs();
-        searchDefaultProduct(productType);
-        return(product);
     }
 
+    public void displayProduct() {
+        System.out.println("CUSTOMIZED PRODUCT: ");
+        product.displaySpecs();
+    }
+    public void displayCVSProduct() {
+        System.out.println("DEFAULT PRODUCT FROM CVS: ");
+        productFromCVS.displaySpecs();
+    }
+
+    public void displayCSV() {
+        adapter.displayCVS();
+    };
 
     public void searchDefaultProduct(String productType) {
-        System.out.println("Compared to: ");
-        adapter.compareProduct(productType);
+        productFromCVS = adapter.compareProduct(productType);
     }
 
 
-
+    //hardcode?
     private ElectronicProduct buildLaptop() {
         LaptopBuilder productBuilder = new LaptopBuilder();
-        System.out.println("Building Laptop");
-        System.out.println("Select screen size (X x Y)");
-        productBuilder.buildScreen(scnr.nextLine());
-        System.out.println("Select processor");
-        productBuilder.buildProcessor(scnr.nextLine());
-        System.out.println("Select battery size");
-        productBuilder.buildBattery(Integer.valueOf(scnr.nextLine()));
-        System.out.println("Select storage size");
-        productBuilder.buildStorage(Integer.valueOf(scnr.nextLine()));
-        System.out.println("Select graphics card");
-        productBuilder.buildGraphicsCard(scnr.nextLine());
-        System.out.println("Select RAM amount");
-        productBuilder.buildRAM(Integer.valueOf(scnr.nextLine()));
-        System.out.println("Select OS");
-        productBuilder.buildSoftware(scnr.nextLine());
-
+        System.out.println("CUSTOMIZED PRODUCT: ");
+        productBuilder.buildProcessor("Intel i5");
+        productBuilder.buildStorage(256);
+        productBuilder.buildGraphicsCard("Integrated");
+        productBuilder.buildSoftware("Windows 10");
+        productBuilder.buildRAM(8);
         return(productBuilder.returnProduct());
     }
 
     private ElectronicProduct buildSmartPhone() {
         SmartPhoneBuilder productBuilder = new SmartPhoneBuilder();
-        System.out.println("Building Smartphone");
-        System.out.println("Select screen size (X x Y)");
-        productBuilder.buildScreen(scnr.nextLine());
-        System.out.println("Select processor");
-        productBuilder.buildProcessor(scnr.nextLine());
-        System.out.println("Select battery size");
-        productBuilder.buildBattery(Integer.valueOf(scnr.nextLine()));
-        System.out.println("Select storage size");
-        productBuilder.buildStorage(Integer.valueOf(scnr.nextLine()));
-        System.out.println("Select OS");
-        productBuilder.buildSoftware(scnr.nextLine());
-
+        System.out.println("CUSTOMIZED PRODUCT: ");
+        productBuilder.buildProcessor("Qualcomm");
+        productBuilder.buildStorage(256);
+        productBuilder.buildSoftware("Android");
         return (productBuilder.returnProduct());
     }
 }

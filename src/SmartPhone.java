@@ -1,30 +1,30 @@
 public class SmartPhone extends ElectronicProduct{
-    private String screenSize;
     private int storageSize;
     private String processor;
-    private int batterySize;
+    private int RAM;
     private String OS; //For preinstalled apps
 
     private double price;
 
-    //constructor, default values to prevent errors
+    //default constructor, default values to prevent errors
     SmartPhone() {
-        this.price = 800.0;
-        this.screenSize = "0x0";
+        this.price = 800.0; //DEFAULT PRICE FOR CUSTOM PRODUCTS
         this.storageSize = 0;
+        this.RAM = 0;
         this.processor = "none";
-        this.batterySize = 0;
         this.OS = "none";
     }
 
-    //SCREEN SIZE
-    public void setScreenSize(String screenSize) {
-        this.screenSize = screenSize;
+    //main constructor
+    SmartPhone(String processor, int storageSize, String os, int RAM, double price) {
+        this.price = price;
+        this.storageSize = storageSize;
+        this.processor = processor;
+        this.OS = os;
+        this.RAM = RAM;
     }
-    //BATTERY
-    public void setBatterySize(int batterySize) {
-        this.batterySize = batterySize;
-    }
+
+
     //STORAGE
     public void setStorageSize(int storageSize) {
         this.storageSize = storageSize;
@@ -33,7 +33,10 @@ public class SmartPhone extends ElectronicProduct{
     public void setProcessor(String processor) {
         this.processor = processor;
     }
-
+    //HARDWARE
+    public void setRAM(int RAM) {
+        this.RAM = RAM;
+    }
     //SOFTWARE
     public void setOS(String os) {
         this.OS = os;
@@ -41,14 +44,14 @@ public class SmartPhone extends ElectronicProduct{
 
     //Display Specs
     public void displaySpecs() {
-        System.out.println("Smart Phone Info:");
-        System.out.println("Screen size: " + screenSize);
-        System.out.println("Storage size: " + storageSize);
-        System.out.println("Battery: " + batterySize);
-        System.out.println("Processor: "+ processor);
-        System.out.println("OS: " + OS);
+        System.out.print("Product: Smartphone:");
+        System.out.print("Specifications: {Processor=" + processor);
+        System.out.print("Storage=" + storageSize);
+        System.out.print("Graphics Card=N/A");
+        System.out.print("OS=" + OS);
+        System.out.println("RAM=N/A}");
         System.out.println("Price: $" + price);
-        System.out.println("");
+        System.out.println(""); //spacing
     }
 
     public void setPrice(double price) {

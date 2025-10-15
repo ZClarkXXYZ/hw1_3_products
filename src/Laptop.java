@@ -1,39 +1,38 @@
+import java.lang.invoke.StringConcatFactory;
+
 public class Laptop extends ElectronicProduct{
-    private String screenSize;
-    private int storageSize;
     private String processor;
-    private int batterySize;
+    private int storageSize;
     private String OS;
     private int RAM;
     private String graphicsCard;
 
     private double price;
 
-    //constructor
+    //default constructor
     Laptop() {
-        this.price = 800.0;
-        this.screenSize = "0x0";
+        this.price = 800.0; //DEFAULT PRICE FOR CUSTOM PRODUCTS
         this.storageSize = 0;
         this.processor = "none";
         this.RAM = 0;
         this.graphicsCard = "none";
-        this.batterySize = 0;
         this.OS = "none";
     }
+    //default constructor
+    Laptop(String processor, int storageSize, String graphicsCard, String OS, int RAM, double price) {
+        this.price = price;
+        this.storageSize = storageSize;
+        this.processor = processor;
+        this.RAM = RAM;
+        this.graphicsCard = graphicsCard;
+        this.OS = OS;
+    }
 
-    //SCREEN SIZE
-    public void setScreenSize(String screenSize) {
-        this.screenSize = screenSize;
-    }
-    //BATTERY
-    public void setBatterySize(int batterySize) {
-        this.batterySize = batterySize;
-    }
     //STORAGE
     public void setStorageSize(int storageSize) {
         this.storageSize = storageSize;
     }
-    //HARDWARE
+    //RAM
     public void setProcessor(String processor) {
         this.processor = processor;
     }
@@ -51,16 +50,14 @@ public class Laptop extends ElectronicProduct{
 
     //Display Specs
     public void displaySpecs() {
-        System.out.println("Laptop Info:");
-        System.out.println("Screen size: " + screenSize);
-        System.out.println("Storage size: " + storageSize);
-        System.out.println("Battery: " + batterySize);
-        System.out.println("Processor: "+ processor);
-        System.out.println("RAM: "+ RAM);
-        System.out.println("Graphics Card: " + graphicsCard);
-        System.out.println("OS: " + OS);
+        System.out.print("Product: Laptop:");
+        System.out.print("Specifications: {Processor=" + processor);
+        System.out.print("Storage=" + storageSize);
+        System.out.print("Graphics Card=" + graphicsCard);
+        System.out.print("OS=" + OS);
+        System.out.println("RAM="+ RAM + "}");
         System.out.println("Price: $" + price);
-        System.out.println("");
+        System.out.println(""); //spacing
     }
 
     public void setPrice(double price) {

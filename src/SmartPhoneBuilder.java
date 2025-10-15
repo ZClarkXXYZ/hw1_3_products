@@ -8,19 +8,6 @@ public class SmartPhoneBuilder implements ProductBuilder{
         this.smartPhone = new SmartPhone();
     }
 
-
-    //Build screen size
-    @Override
-    public void buildScreen(String screen) {
-        smartPhone.setScreenSize(screen);
-    }
-
-    //Build battery
-    @Override
-    public void buildBattery(int battery) {
-        smartPhone.setBatterySize(battery);
-    }
-
     //Build storage
     @Override
     public void buildStorage(int storage) {
@@ -37,6 +24,12 @@ public class SmartPhoneBuilder implements ProductBuilder{
     @Override
     public void buildSoftware(String OS) {
         smartPhone.setOS(OS);
+    }
+
+    //Build RAM
+    @Override
+    public void buildRAM(int RAM) {
+        smartPhone.setRAM(RAM);
     }
 
     //Get product

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class LaptopBuilder implements ProductBuilder, ComputerBuilderInterface {
+public class LaptopBuilder implements ProductBuilder, LaptopBuilderInterface {
     Laptop laptop = new Laptop();
 
     //resetBuild
@@ -8,18 +8,6 @@ public class LaptopBuilder implements ProductBuilder, ComputerBuilderInterface {
         this.laptop = new Laptop();
     }
 
-
-    //Build screen size
-    @Override
-    public void buildScreen(String screen) {
-        laptop.setScreenSize(screen);
-    }
-
-    //Build battery
-    @Override
-    public void buildBattery(int battery) {
-        laptop.setBatterySize(battery);
-    }
 
     //Build storage
     @Override
@@ -36,6 +24,7 @@ public class LaptopBuilder implements ProductBuilder, ComputerBuilderInterface {
     public void buildGraphicsCard(String graphicsCard) { //ComputerBuilderInterface
         laptop.setGraphicsCard(graphicsCard);
     }
+
     @Override
     public void buildRAM(int ram) { //ComputerBuilderInterface
         laptop.setRAM(ram);
